@@ -1,4 +1,4 @@
-﻿using C_MazeCrawler;
+﻿using MazeCrawler;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +11,6 @@ namespace MazeCrawler
     {
         const int mapRows = 10;
         const int mapCols = 10;
-        public static void Greet()
-        {
-            Console.WriteLine("Hello Master");
-        }
 
         public static void runGame()
         {
@@ -24,7 +20,14 @@ namespace MazeCrawler
             {
                 for (int j = 0; j < mapCols; j++) 
                 {
-                    cells[i, j] = CellFactory.CreateCell(i, j);
+                    if(i == 0 || i == mapRows - 1 || j == 0 || j == mapCols - 1)
+                    {
+                        cells[i, j] = CellFactory.CreateCell(CellType.Wall);
+                    }
+                    else
+                    {
+                        cells[i, j] = CellFactory.CreateCell(CellType.Empty);
+                    }
                 }
             }
 
@@ -36,6 +39,10 @@ namespace MazeCrawler
                     
                 }
                 Console.WriteLine();
+            }
+            while (true)
+            {
+
             }
         }
     }

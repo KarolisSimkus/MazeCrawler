@@ -10,12 +10,24 @@ namespace MazeCrawler
     {
         private static Random rand = new Random();
 
-        public static Cell CreateCell(int row, int col)
+        public static Cell CreateCell(CellType type)
         {
-            char[] possibleSymbols = { '.', '#', '~' };
-            char chosenSymbol = possibleSymbols[rand.Next(possibleSymbols.Length)];
-
-            return new Cell(chosenSymbol);
+            switch (type)
+            {
+                case CellType.Wall:
+                    return new CellWall();   
+                case CellType.Empty:
+                    return new CellEmpty();
+                case CellType.Danger:
+                    return new CellDanger();   
+                case CellType.Door:
+                    return new CellDoor();   
+                case CellType.Key:
+                    return new CellKey();   
+            }
+            //Bad
+            throw new NotImplementedException();
+            
         }
     }
 }

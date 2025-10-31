@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace MazeCrawler
 {
-    abstract class Cell
+    enum CellType
     {
-        public abstract char drawCell();
+        Wall, Empty, Danger, Door, Key
     }
 }
