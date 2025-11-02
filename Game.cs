@@ -19,7 +19,7 @@ namespace MazeCrawler
             map.setMap();
             soundManager.Play();
 
-            while (true)
+            while (map.isAlive || map.isWin)
             {
                 {
                     Console.Clear();
@@ -32,6 +32,16 @@ namespace MazeCrawler
                         command.Execute(map);
                     }
                 }
+            }
+            if (!map.isAlive)
+            {
+                Console.Clear();
+                Console.WriteLine("GAME OVER!");
+            }
+            if (map.isWin)
+            {
+                Console.Clear();
+                Console.WriteLine("You've Won!");
             }
         }
     }

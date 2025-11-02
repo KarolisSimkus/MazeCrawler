@@ -11,6 +11,8 @@ namespace MazeCrawler
     {
         private int mapRows { get; init; }
         private int mapCols { get; init; }
+        public bool isAlive = true;
+        public bool isWin = false;
 
         Cell[,] cells;
         CellPlayer player;
@@ -78,6 +80,10 @@ namespace MazeCrawler
                     else if(i == 5 && j == 5)
                     {
                         cells[i, j] = CellFactory.CreateCell(CellType.Key);
+                    }
+                    else if(i == 5 && j == 6)
+                    {
+                        cells[i, j] = CellFactory.CreateCell(CellType.Danger);
                     }
                     else if(i == 7 && j == 7)
                     {

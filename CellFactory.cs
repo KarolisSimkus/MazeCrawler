@@ -24,6 +24,8 @@ namespace MazeCrawler
                     return new CellKey();
                 case CellType.Player:
                     return new CellPlayer();
+                case CellType.Win:
+                    return new CellPlayer();
                 default:
                     throw new NotImplementedException();
             }

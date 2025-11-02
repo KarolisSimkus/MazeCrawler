@@ -14,6 +14,8 @@ namespace MazeCrawler
         public int keyCount { get; set; }
         public int doorCount { get; set; }
 
+        
+
         public CellPlayer(int x, int y)
         {
             X = x;
