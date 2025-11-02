@@ -24,6 +24,7 @@ namespace MazeCrawler
                 {
                     Console.Clear();
                     map.draw();
+                    Console.WriteLine(map.isWin);
 
                     char c = (char)Console.Read();
                     ICommand? command = inputHandler.HandleInput(c);
@@ -38,7 +39,7 @@ namespace MazeCrawler
                 Console.Clear();
                 Console.WriteLine("GAME OVER!");
             }
-            if (map.isWin)
+            else if (map.isWin)
             {
                 Console.Clear();
                 Console.WriteLine("You've Won!");

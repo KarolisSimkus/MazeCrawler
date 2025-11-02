@@ -77,17 +77,27 @@ namespace MazeCrawler
                     {
                         cells[i, j] = CellFactory.CreateCell(CellType.Wall);
                     }
-                    else if(i == 5 && j == 5)
+                    else if((j == 4 || j == 6) && (i == mapRows - 2 || i == mapRows - 3 || i == mapRows - 4))
+                    {
+                        cells[i, j] = CellFactory.CreateCell(CellType.Wall);
+                    }
+                    else if((i == 5 && j == 5 )|| (i == 1 && j == 1))
                     {
                         cells[i, j] = CellFactory.CreateCell(CellType.Key);
                     }
-                    else if(i == 5 && j == 6)
+                    else if((i == 5 && j == 6) || (i == 4 && j == 6) || (i == 4 && j == 5))
                     {
                         cells[i, j] = CellFactory.CreateCell(CellType.Danger);
                     }
-                    else if(i == 7 && j == 7)
+                    else if(i == 6 && j == 5)
                     {
                         cells[i, j] = CellFactory.CreateCell(CellType.Door);
+                    }
+                    // Cia kartais nustoja veikti dangercell
+                    // jei yra sis ifas:)
+                    else if(i == 8 && j == 5)
+                    {
+                        cells[i, j] = CellFactory.CreateCell(CellType.Win);
                     }
                     else
                     {
@@ -116,6 +126,10 @@ namespace MazeCrawler
             {
                 return false;
             }
+            /*if (targetCell is CellWin)
+            {
+                Console.WriteLine("THIS IS A WIN CELL");
+            }*/
 
             // swap player position
             cells[player.X, player.Y] = CellFactory.CreateCell(CellType.Empty);
