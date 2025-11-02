@@ -6,6 +6,7 @@
         public override void OnEnter(Map map, CellPlayer player)
         {
             player.addDoor();
+            player.keyCount--;
         }
     }
 }
