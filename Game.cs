@@ -14,11 +14,11 @@ namespace MazeCrawler
         {
             Map map = new Map(10, 10);
             InputHandler inputHandler = new InputHandler();
-            // TODO make music seperate class
-            SoundPlayer soundPlayer = new();
-            soundPlayer.SoundLocation = "music.wav";
-            soundPlayer.Play();
+            SoundManager soundManager = new SoundManager("music.wav");
+            
             map.setMap();
+            soundManager.Play();
+
             while (true)
             {
                 {
