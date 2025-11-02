@@ -2,9 +2,6 @@
 {
     internal class CellDoor : Cell
     {
-        public override char drawCell()
-        {
-            return 'O';
-        }
+        public override char drawCell() => 'O';
     }
 }

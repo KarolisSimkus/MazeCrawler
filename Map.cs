@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace C_MazeCrawler
+namespace MazeCrawler
 {
     class Map
     {
@@ -13,12 +13,14 @@ namespace C_MazeCrawler
         private int mapCols { get; init; }
 
         Cell[,] cells;
+        CellPlayer player;
 
         public Map(int mapRows, int mapCols)
         {
             this.mapRows = mapRows;
             this.mapCols = mapCols;
             this.cells = new Cell[mapRows, mapCols];
+            this.player = new CellPlayer(3, 3);
         }
 
         public void printAllMap()
@@ -34,12 +36,11 @@ namespace C_MazeCrawler
             }
         }
 
-        public void printFOWMap(int minX, int minY, int maxX, int maxY)
+        public void printFOWMap()
         {
-            // Or just give position of player cell
-            for (int i = minX; i < maxX; i++)
+            for (int i = player.X - 1; i < player.X + 2; i++)
             {
-                for (int j = minY; j < maxY; j++)
+                for (int j = player.Y - 1; j < player.Y + 2; j++)
                 {
                     Console.Write("[" + cells[i, j].drawCell() + "]");
 
@@ -68,9 +69,23 @@ namespace C_MazeCrawler
                     }
                 }
             }
-            //Player, TODO seperate this also no magic numbers pls
-            cells[3, 3] = CellFactory.CreateCell(CellType.Player);
+            cells[player.X, player.Y] = CellFactory.CreateCell(CellType.Player);
 
+        }
+        public bool TryMovePlayer(int x, int y)
+        {
+            int newX = player.X + x;
+            int newY = player.Y + y;
+
+            if (!cells[newX, newY].IsWalkable)
+                return false;
+
+            // swap player position
+            cells[player.X, player.Y] = CellFactory.CreateCell(CellType.Empty);
+            player.Move(x, y);
+            cells[player.X, player.Y] = CellFactory.CreateCell(CellType.Player);
+
+            return true;
         }
     }
 }

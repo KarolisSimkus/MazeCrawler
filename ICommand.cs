@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace MazeCrawler
 {
-    abstract class Cell
+    internal interface ICommand
     {
-        public abstract char drawCell();
-        public virtual bool IsWalkable => true;
+        void Execute(Map map);
     }
 }

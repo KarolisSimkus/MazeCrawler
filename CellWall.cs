@@ -9,9 +9,8 @@ namespace MazeCrawler
 {
     internal class CellWall : Cell
     {
-        public override char drawCell()
-        {
-            return '#';
-        }
+        public override char drawCell() => '#';
+        
+        public override bool IsWalkable => false;
     }
 }

@@ -16,8 +16,20 @@ namespace MazeCrawler
             map.setMap();
             while (true)
             {
-                map.printAllMap();
-                Console.ReadLine();
+                Console.Clear();
+                map.printFOWMap();
+                char c  = (char)Console.Read();
+                Dictionary<char, ICommand> commands = new()
+                {
+                { 'w', new MoveUpCommand() },
+                { 'a', new MoveLeftCommand() },
+                { 's', new MoveDownCommand() },
+                { 'd', new MoveRightCommand() }
+                };
+                if (commands.TryGetValue(c, out ICommand command))
+                {
+                    command.Execute(map);
+                }
             }
         }
     }

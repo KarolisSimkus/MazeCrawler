@@ -2,9 +2,6 @@
 {
     internal class CellKey : Cell
     {
-        public override char drawCell()
-        {
-            return '+';
-        }
+        public override char drawCell() => '+';
     }
 }
