@@ -8,8 +8,6 @@ namespace MazeCrawler
 {
     static class CellFactory
     {
-        private static Random rand = new Random();
-
         public static Cell CreateCell(CellType type)
         {
             switch (type)
@@ -23,11 +21,12 @@ namespace MazeCrawler
                 case CellType.Door:
                     return new CellDoor();   
                 case CellType.Key:
-                    return new CellKey();   
+                    return new CellKey();
+                case CellType.Player:
+                    return new CellPlayer();
+                default:
+                    throw new NotImplementedException();
             }
-            //Bad
-            throw new NotImplementedException();
-            
         }
     }
 }

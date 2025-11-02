@@ -8,6 +8,6 @@ namespace MazeCrawler
 {
     enum CellType
     {
-        Wall, Empty, Danger, Door, Key
+        Wall, Empty, Danger, Door, Key, Player
     }
 }

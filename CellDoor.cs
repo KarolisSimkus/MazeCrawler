@@ -4,7 +4,7 @@
     {
         public override char drawCell()
         {
-            throw new NotImplementedException();
+            return 'O';
         }
     }
 }
