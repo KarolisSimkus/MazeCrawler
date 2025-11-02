@@ -1,5 +1,4 @@
-﻿using C_MazeCrawler;
-using MazeCrawler;
+﻿using MazeCrawler;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,20 +12,16 @@ namespace MazeCrawler
         public static void runGame()
         {
             Map map = new Map(10, 10);
+            InputHandler inputHandler = new InputHandler();
             map.setMap();
             while (true)
             {
                 Console.Clear();
                 map.printFOWMap();
+
                 char c  = (char)Console.Read();
-                Dictionary<char, ICommand> commands = new()
-                {
-                { 'w', new MoveUpCommand() },
-                { 'a', new MoveLeftCommand() },
-                { 's', new MoveDownCommand() },
-                { 'd', new MoveRightCommand() }
-                };
-                if (commands.TryGetValue(c, out ICommand command))
+                ICommand? command = inputHandler.HandleInput(c);
+                if (command != null)
                 {
                     command.Execute(map);
                 }
