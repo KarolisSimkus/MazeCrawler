@@ -29,6 +29,7 @@ namespace MazeCrawler
         private void printBottomLegend()
         {
             Console.WriteLine("Keycount:" + player.keyCount);
+            Console.WriteLine("Doors Opened:" + player.doorCount);
         }
         public void draw()
         {
@@ -64,6 +65,8 @@ namespace MazeCrawler
 
         public void setMap()
         {
+            // TODO somehow refactor this, idk if the ifs are good here
+            // Its a pain in the ass to make actual maps
             for (int i = 0; i < mapRows; i++)
             {
                 for (int j = 0; j < mapCols; j++)
@@ -75,6 +78,10 @@ namespace MazeCrawler
                     else if(i == 5 && j == 5)
                     {
                         cells[i, j] = CellFactory.CreateCell(CellType.Key);
+                    }
+                    else if(i == 7 && j == 7)
+                    {
+                        cells[i, j] = CellFactory.CreateCell(CellType.Door);
                     }
                     else
                     {
@@ -96,6 +103,10 @@ namespace MazeCrawler
             Cell targetCell = cells[newX, newY];
 
             if (!targetCell.IsWalkable)
+            {
+                return false;
+            }
+            if (targetCell is CellDoor && player.keyCount <= 0)
             {
                 return false;
             }
