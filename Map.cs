@@ -22,8 +22,22 @@ namespace MazeCrawler
             this.cells = new Cell[mapRows, mapCols];
             this.player = new CellPlayer(3, 3);
         }
-
-        public void printAllMap()
+        private void printTopLegend()
+        {
+            Console.WriteLine("[w,a,s,d]");
+        }
+        private void printBottomLegend()
+        {
+            Console.WriteLine("Keycount:" + player.keyCount);
+        }
+        public void draw()
+        {
+            printTopLegend();
+            printFOWMap();
+            //printAllMap();
+            printBottomLegend();
+        }
+        private void printAllMap()
         {
             for (int i = 0; i < mapRows; i++)
             {
@@ -35,7 +49,6 @@ namespace MazeCrawler
                 Console.WriteLine();
             }
         }
-
         public void printFOWMap()
         {
             for (int i = player.X - 1; i < player.X + 2; i++)
@@ -61,7 +74,7 @@ namespace MazeCrawler
                     }
                     else if(i == 5 && j == 5)
                     {
-                        cells[i, j] = CellFactory.CreateCell(CellType.Danger);
+                        cells[i, j] = CellFactory.CreateCell(CellType.Key);
                     }
                     else
                     {
@@ -72,17 +85,25 @@ namespace MazeCrawler
             cells[player.X, player.Y] = CellFactory.CreateCell(CellType.Player);
 
         }
+        public void ReplaceCell(int x, int y, Cell newCell)
+        {
+            cells[x, y] = newCell;
+        }
         public bool TryMovePlayer(int x, int y)
         {
             int newX = player.X + x;
             int newY = player.Y + y;
+            Cell targetCell = cells[newX, newY];
 
-            if (!cells[newX, newY].IsWalkable)
+            if (!targetCell.IsWalkable)
+            {
                 return false;
+            }
 
             // swap player position
             cells[player.X, player.Y] = CellFactory.CreateCell(CellType.Empty);
             player.Move(x, y);
+            targetCell.OnEnter(this, player);
             cells[player.X, player.Y] = CellFactory.CreateCell(CellType.Player);
 
             return true;

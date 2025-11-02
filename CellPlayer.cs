@@ -11,17 +11,25 @@ namespace MazeCrawler
     {
         public int X {  get; set; }
         public int Y { get; set; }
+        public int keyCount { get; set; }
 
         public CellPlayer(int x, int y)
         {
             X = x;
             Y = y;
+            keyCount = 0;
         }
 
         public CellPlayer()
         {
+            X = 0;
+            Y = 0;
+            keyCount = 0;
         }
-
+        public void addKey()
+        {
+            keyCount++;
+        }
         public void Move(int x, int y)
         {
             X += x;

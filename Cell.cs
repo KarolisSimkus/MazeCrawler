@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,5 +11,6 @@ namespace MazeCrawler
     {
         public abstract char drawCell();
         public virtual bool IsWalkable => true;
+        public virtual void OnEnter(Map map, CellPlayer player) { }
     }
 }
