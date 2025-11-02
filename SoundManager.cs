@@ -23,6 +23,7 @@ namespace MazeCrawler
             }
             catch (Exception ex)
             {
+                // This will fire on any other computer since my github repo doesn't include the music.vaw file and the bin/debug folderpath
                 Console.WriteLine("Error playing sound: " + ex.Message);
             }
         }

@@ -24,7 +24,8 @@ namespace MazeCrawler
                 {
                     Console.Clear();
                     map.draw();
-                    Console.WriteLine(map.isWin);
+                    // TODO Move this to map draw call
+                    Console.WriteLine("Has Won: " + map.isWin);
 
                     char c = (char)Console.Read();
                     ICommand? command = inputHandler.HandleInput(c);
