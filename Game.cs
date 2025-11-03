@@ -19,7 +19,7 @@ namespace MazeCrawler
             map.setMap();
             soundManager.Play();
 
-            while (map.isAlive || map.isWin)
+            while (map.isAlive && !map.isWin)
             {
                 {
                     Console.Clear();
