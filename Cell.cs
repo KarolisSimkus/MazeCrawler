@@ -11,6 +11,7 @@ namespace MazeCrawler
     {
         public abstract char drawCell();
         public virtual bool IsWalkable => true;
+        public virtual bool IsSeen { get; set; } = false;
         public virtual void OnEnter(Map map, CellPlayer player) { }
     }
 }

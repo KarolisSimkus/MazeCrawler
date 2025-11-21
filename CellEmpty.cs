@@ -2,6 +2,6 @@
 {
     internal class CellEmpty : Cell
     {
-        public override char drawCell() => ' ';
+        public override char drawCell() => IsSeen ? ' ' : 'F';
     }
 }

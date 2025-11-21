@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36511.14 d17.14
+VisualStudioVersion = 17.14.36511.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C#MazeCrawler", "C#MazeCrawler.csproj", "{451E1CC7-E9F0-4505-A81D-D16A7E95A470}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTesting", "..\UnitTesting\UnitTesting.csproj", "{9DD99636-6E95-406C-8ED4-83ECEA610C8C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{451E1CC7-E9F0-4505-A81D-D16A7E95A470}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{451E1CC7-E9F0-4505-A81D-D16A7E95A470}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{451E1CC7-E9F0-4505-A81D-D16A7E95A470}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DD99636-6E95-406C-8ED4-83ECEA610C8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DD99636-6E95-406C-8ED4-83ECEA610C8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DD99636-6E95-406C-8ED4-83ECEA610C8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DD99636-6E95-406C-8ED4-83ECEA610C8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

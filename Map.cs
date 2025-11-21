@@ -36,12 +36,18 @@ namespace MazeCrawler
         public void draw()
         {
             printTopLegend();
-            printFOWMap();
-            //printAllMap();
+            printAllMap();
             printBottomLegend();
         }
         private void printAllMap()
         {
+            for (int i = player.X - 1; i < player.X + 2; i++)
+            {
+                for (int j = player.Y - 1; j < player.Y + 2; j++)
+                {
+                    cells[i,j].IsSeen = true;
+                }
+            }
             for (int i = 0; i < mapRows; i++)
             {
                 for (int j = 0; j < mapCols; j++)
@@ -52,23 +58,9 @@ namespace MazeCrawler
                 Console.WriteLine();
             }
         }
-        public void printFOWMap()
-        {
-            for (int i = player.X - 1; i < player.X + 2; i++)
-            {
-                for (int j = player.Y - 1; j < player.Y + 2; j++)
-                {
-                    Console.Write("[" + cells[i, j].drawCell() + "]");
-
-                }
-                Console.WriteLine();
-            }
-        }
 
         public void setMap()
         {
-            // TODO somehow refactor this, idk if the ifs are good here
-            // Its a pain in the ass to make actual maps
             for (int i = 0; i < mapRows; i++)
             {
                 for (int j = 0; j < mapCols; j++)
@@ -93,8 +85,6 @@ namespace MazeCrawler
                     {
                         cells[i, j] = CellFactory.CreateCell(CellType.Door);
                     }
-                    // Cia kartais nustoja veikti dangercell
-                    // jei yra sis ifas:)
                     else if(i == 8 && j == 5)
                     {
                         cells[i, j] = CellFactory.CreateCell(CellType.Win);
@@ -126,10 +116,6 @@ namespace MazeCrawler
             {
                 return false;
             }
-            /*if (targetCell is CellWin)
-            {
-                Console.WriteLine("THIS IS A WIN CELL");
-            }*/
 
             // swap player position
             cells[player.X, player.Y] = CellFactory.CreateCell(CellType.Empty);

@@ -8,7 +8,7 @@ namespace MazeCrawler
 {
     internal class CellWin : Cell
     {
-        public override char drawCell() => 'X';
+        public override char drawCell() => IsSeen ? 'X' : 'F';
 
         public override void OnEnter(Map map, CellPlayer player)
         {
