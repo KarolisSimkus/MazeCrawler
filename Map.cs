@@ -14,6 +14,20 @@ namespace MazeCrawler
         public bool isAlive = true;
         public bool isWin = false;
 
+        public static readonly string[] map =
+    {
+        "##########",
+        "#....D...#",
+        "#....D.W.#",
+        "#....X...#",
+        "#....DDDD#",
+        "#.K......#",
+        "#........#",
+        "#....#####",
+        "#....X.K.#",
+        "##########"
+    };
+
         Cell[,] cells;
         CellPlayer player;
 
@@ -53,50 +67,33 @@ namespace MazeCrawler
                 for (int j = 0; j < mapCols; j++)
                 {
                     Console.Write("[" + cells[i, j].drawCell() + "]");
-
                 }
                 Console.WriteLine();
             }
         }
-
         public void setMap()
         {
             for (int i = 0; i < mapRows; i++)
             {
                 for (int j = 0; j < mapCols; j++)
                 {
-                    if (i == 0 || i == mapRows - 1 || j == 0 || j == mapCols - 1)
+                    Console.WriteLine("MAPCOLS:" + j + " MAPROWS:" + i);
+                    char symbol = map[i][j];
+                    CellType type = symbol switch
                     {
-                        cells[i, j] = CellFactory.CreateCell(CellType.Wall);
-                    }
-                    else if((j == 4 || j == 6) && (i == mapRows - 2 || i == mapRows - 3 || i == mapRows - 4))
-                    {
-                        cells[i, j] = CellFactory.CreateCell(CellType.Wall);
-                    }
-                    else if((i == 5 && j == 5 )|| (i == 1 && j == 1))
-                    {
-                        cells[i, j] = CellFactory.CreateCell(CellType.Key);
-                    }
-                    else if((i == 5 && j == 6) || (i == 4 && j == 6) || (i == 4 && j == 5))
-                    {
-                        cells[i, j] = CellFactory.CreateCell(CellType.Danger);
-                    }
-                    else if(i == 6 && j == 5)
-                    {
-                        cells[i, j] = CellFactory.CreateCell(CellType.Door);
-                    }
-                    else if(i == 8 && j == 5)
-                    {
-                        cells[i, j] = CellFactory.CreateCell(CellType.Win);
-                    }
-                    else
-                    {
-                        cells[i, j] = CellFactory.CreateCell(CellType.Empty);
-                    }
+                        '#' => CellType.Wall,
+                        'K' => CellType.Key,
+                        'D' => CellType.Danger,
+                        'X' => CellType.Door,
+                        'W' => CellType.Win,
+                        'P' => CellType.Player,
+                        '.' => CellType.Empty,
+                        _ => throw new NotImplementedException()
+                    };
+
+                    cells[i, j] = CellFactory.CreateCell(type);
                 }
             }
-            cells[player.X, player.Y] = CellFactory.CreateCell(CellType.Player);
-
         }
         public void ReplaceCell(int x, int y, Cell newCell)
         {
@@ -117,7 +114,6 @@ namespace MazeCrawler
                 return false;
             }
 
-            // swap player position
             cells[player.X, player.Y] = CellFactory.CreateCell(CellType.Empty);
             player.Move(x, y);
             targetCell.OnEnter(this, player);

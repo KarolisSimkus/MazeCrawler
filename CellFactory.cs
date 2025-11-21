@@ -10,25 +10,17 @@ namespace MazeCrawler
     {
         public static Cell CreateCell(CellType type)
         {
-            switch (type)
+            return type switch
             {
-                case CellType.Wall:
-                    return new CellWall();   
-                case CellType.Empty:
-                    return new CellEmpty();
-                case CellType.Danger:
-                    return new CellDanger();   
-                case CellType.Door:
-                    return new CellDoor();   
-                case CellType.Key:
-                    return new CellKey();
-                case CellType.Player:
-                    return new CellPlayer();
-                case CellType.Win:
-                    return new CellWin();
-                default:
-                    throw new NotImplementedException();
-            }
+                CellType.Wall => new CellWall(),
+                CellType.Key => new CellKey(),
+                CellType.Danger => new CellDanger(),
+                CellType.Door => new CellDoor(),
+                CellType.Win => new CellWin(),
+                CellType.Player => new CellPlayer(),
+                CellType.Empty => new CellEmpty(),
+                _ => throw new NotImplementedException()
+            };
         }
     }
 }
