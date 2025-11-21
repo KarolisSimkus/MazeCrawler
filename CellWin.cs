@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MazeCrawler
 {
-    internal class CellWin : Cell
+    public class CellWin : Cell
     {
         public override char drawCell() => IsSeen ? 'X' : 'F';
 

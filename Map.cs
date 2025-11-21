@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace MazeCrawler
 {
-    class Map
+    public class Map
     {
-        private int mapRows { get; init; }
-        private int mapCols { get; init; }
+        public int mapRows { get; init; }
+        public int mapCols { get; init; }
         public bool isAlive = true;
         public bool isWin = false;
 

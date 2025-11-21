@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MazeCrawler
 {
-    abstract class Cell
+    abstract public class Cell
     {
         public abstract char drawCell();
         public virtual bool IsWalkable => true;

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MazeCrawler
 {
-    class CellPlayer : Cell
+    public class CellPlayer : Cell
     {
         public int X {  get; set; }
         public int Y { get; set; }
