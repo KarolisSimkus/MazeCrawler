@@ -1,5 +1,5 @@
 # MazeCrawler
-My represantation of a Maze Crawler type game. 
+My represantation of a Maze Crawler type game. For A university Module
 
 ### ⚙️ Languages and Tools
 <img align="left" alt="C#" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" />
@@ -12,7 +12,7 @@ My represantation of a Maze Crawler type game.
 - 🤖 Movable robot
 - 🔰 1 Full level
 - 🟢 Visuals using the Console
-- 🧪 Unit testing
+- 🧪 Unit testing with MSTest (Tests not included in the repo)
 - 🧱 Used OOP patterns: Command, Entity Factory
 - 📊 Kanban Project Managment methodology using Jira 
     ## Gameplay
