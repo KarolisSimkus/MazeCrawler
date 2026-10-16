@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace MazeCrawler
 {
-    public class CellWall : Cell
+    internal class MoveRightCommand : ICommand
     {
-        public override char drawCell() => IsSeen ? '#' : 'F';
-
-        public override bool IsWalkable => false;
+        public void Execute(Map map)
+        {
+            map.TryMovePlayer(0, 1);
+        }
     }
 }

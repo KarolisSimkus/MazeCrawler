@@ -11,8 +11,8 @@ namespace MazeCrawler
     {
         public int X {  get; set; }
         public int Y { get; set; }
-        public int keyCount { get; set; }
-        public int doorCount { get; set; }
+        public int KeyCount { get; set; }
+        public int DoorCount { get; set; }
 
         
 
@@ -20,24 +20,24 @@ namespace MazeCrawler
         {
             X = x;
             Y = y;
-            keyCount = 0;
-            doorCount = 0;
+            KeyCount = 0;
+            DoorCount = 0;
         }
 
         public CellPlayer()
         {
             X = 0;
             Y = 0;
-            keyCount = 0;
-            doorCount = 0;
+            KeyCount = 0;
+            DoorCount = 0;
         }
-        public void addKey()
+        public void AddKey()
         {
-            keyCount++;
+            KeyCount++;
         }
-        public void addDoor()
+        public void AddDoor()
         {
-            doorCount++;
+            DoorCount++;
         }
         public void Move(int x, int y)
         {
@@ -45,6 +45,6 @@ namespace MazeCrawler
             Y += y;
         }
 
-        public override char drawCell() => '@';
+        public override char DrawCell() => '@';
     }
 }

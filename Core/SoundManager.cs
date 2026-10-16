@@ -9,17 +9,27 @@ namespace MazeCrawler
 {
     internal class SoundManager
     {
-        private SoundPlayer SoundPlayer;
+        private SoundPlayer _soundPlayer;
 
         public SoundManager(string filepath)
         {
-            SoundPlayer = new SoundPlayer(filepath);
+            if (!OperatingSystem.IsWindows())
+            {
+                throw new PlatformNotSupportedException("Sound playback is only supported on Windows.");
+            }
+
+            _soundPlayer = new SoundPlayer(filepath);
         }
         public void Play() 
         {
+            if (!OperatingSystem.IsWindows())
+            {
+                throw new PlatformNotSupportedException("Sound playback is only supported on Windows.");
+            }
+
             try
             {
-                SoundPlayer.Play();
+                _soundPlayer.Play();
             }
             catch (Exception ex)
             {

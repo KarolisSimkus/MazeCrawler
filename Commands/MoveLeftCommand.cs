@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace MazeCrawler
 {
-    internal class MoveUpCommand : ICommand
+    internal class MoveLeftCommand : ICommand
     {
-        public void Execute(Map m)
+        public void Execute(Map map)
         {
-            m.TryMovePlayer(-1, 0);
+            map.TryMovePlayer(0, -1);
         }
     }
 }

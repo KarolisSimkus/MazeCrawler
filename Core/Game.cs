@@ -10,22 +10,23 @@ namespace MazeCrawler
 {
     class Game
     {
-        public static void runGame()
+        public static void RunGame()
         {
             Map map = new Map(10, 10);
             InputHandler inputHandler = new InputHandler();
-            SoundManager soundManager = new SoundManager("music.wav");
+            SoundManager soundManager = new SoundManager(
+                Path.Combine(AppContext.BaseDirectory, "Media", "music.wav"));
             
-            map.setMap();
+            map.SetMap();
             soundManager.Play();
 
-            while (map.isAlive && !map.isWin)
+            while (map.IsAlive && !map.IsWin)
             {
                 {
                     Console.Clear();
-                    map.draw();
+                    map.Draw();
                     // TODO Move this to map draw call
-                    Console.WriteLine("Has Won: " + map.isWin);
+                    Console.WriteLine("Has Won: " + map.IsWin);
 
                     char c = (char)Console.Read();
                     ICommand? command = inputHandler.HandleInput(c);
@@ -35,12 +36,12 @@ namespace MazeCrawler
                     }
                 }
             }
-            if (!map.isAlive)
+            if (!map.IsAlive)
             {
                 Console.Clear();
                 Console.WriteLine("GAME OVER!");
             }
-            else if (map.isWin)
+            else if (map.IsWin)
             {
                 Console.Clear();
                 Console.WriteLine("You've Won!");

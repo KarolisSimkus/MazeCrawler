@@ -9,9 +9,9 @@ namespace MazeCrawler
 {
     internal class MoveDownCommand : ICommand
     {
-        public void Execute(Map m)
+        public void Execute(Map map)
         {
-            m.TryMovePlayer(1, 0);
+            map.TryMovePlayer(1, 0);
         }
     }
 }

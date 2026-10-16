@@ -9,22 +9,22 @@ namespace MazeCrawler
 {
     internal class InputHandler
     {
-        private Dictionary<char, ICommand> commands;
+        private Dictionary<char, ICommand> _commands;
 
         public InputHandler()
         {
-            this.commands = new Dictionary<char, ICommand>
+            _commands = new Dictionary<char, ICommand>
             {
                 { 'w', new MoveUpCommand() },
                 { 'a', new MoveLeftCommand() },
                 { 's', new MoveDownCommand() },
                 { 'd', new MoveRightCommand() }
-            }; ;
+            };
         }
 
         public ICommand? HandleInput(char input)
         {
-            if (commands.TryGetValue(input, out ICommand command))
+            if (_commands.TryGetValue(input, out ICommand? command))
                 return command;
             return null;
         }

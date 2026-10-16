@@ -12,4 +12,8 @@
     <PackageReference Include="System.Windows.Extensions" Version="9.0.10" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Media\music.wav" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
 </Project>

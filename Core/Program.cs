@@ -1,3 +1,3 @@
 ﻿using MazeCrawler;
 
-Game.runGame();
+Game.RunGame();

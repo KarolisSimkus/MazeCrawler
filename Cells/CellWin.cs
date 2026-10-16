@@ -8,12 +8,12 @@ namespace MazeCrawler
 {
     public class CellWin : Cell
     {
-        public override char drawCell() => IsSeen ? 'X' : 'F';
+        public override char DrawCell() => IsSeen ? 'X' : 'F';
 
         public override void OnEnter(Map map, CellPlayer player)
         {
             //Console.WriteLine("IN CELLWIN OnEnter Method");
-            map.isWin = true;
+            map.IsWin = true;
         }
     }
 }
