@@ -18,6 +18,6 @@ My representation of a Maze Crawler type game
   ![Level1](https://github.com/KarolisSimkus/MazeCrawler/blob/main/Media/Gameplay.gif)
 
 # Kanban Project Managment methology 📊🧐
-- Since the beginning till the first release version all the work tasks have been described and managed
-  by applying Kanban Project Managment methology in Jira Atlassian to have structured worflow and clear steps inorder to succeed 
+- Since the beginning till the first release version all the work tasks have been described and managed by applying Kanban Project Management methodology in Jira Atlassian to have structured workflow and clear steps in order to succeed
+ 
 ![Kanban workflow](https://github.com/KarolisSimkus/MazeCrawler/blob/main/Media/KanbanBoard.png)
